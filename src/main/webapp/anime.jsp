@@ -1,11 +1,11 @@
-<%@ page import="home.privatik.general.Factory" %>
-<%@ page import="home.privatik.dao.AnimeDao" %>
+<%@ page import="animedb.general.Factory" %>
+<%@ page import="animedb.dao.AnimeDao" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="home.privatik.domain.AnimeEntity" %>
-<%@ page import="home.privatik.dao.ScreenshotsDao" %>
-<%@ page import="home.privatik.domain.ScreenshotsEntity" %>
+<%@ page import="animedb.domain.AnimeEntity" %>
+<%@ page import="animedb.domain.ScreenshotsEntity" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="animedb.domain.AnimeGenreEntity" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,12 +19,11 @@
             margin: auto;
         }
         .image {
-            width: 300px;
+            width: 260px;
             float: left;
         }
         .review {
              width: 100%;
-             height: 150px;
              padding: 10px;
         }
         .screenshots {
@@ -41,21 +40,19 @@
 
         Factory instance = Factory.getInstance();
         AnimeDao animeDao = instance.getAnimeDao();
-        ScreenshotsDao screenshotsDao = instance.getScreenshotsDao();
 
-        AnimeEntity anime = new AnimeEntity();
-        List<ScreenshotsEntity> screenshots = new ArrayList<>();
+        AnimeEntity anime = null;
         try {
-            anime = animeDao.getAnimeById(animeId);
-            screenshots = screenshotsDao.getSchreenshotsByAnimeId(animeId);
+            anime = animeDao.getAnimeById(Integer.parseInt(animeId));
         } catch (SQLException e) {
             e.printStackTrace();
+            anime = new AnimeEntity();
         }
     %>
 
     <div class="content">
         <div class="image">
-            <img src="<%= anime.getMainImg() %>" alt="<%= anime.getMainTitle() %>">
+            <img src="<%= anime.getMainImg() %>" alt="<%= anime.getMainTitle() %>" width=240px>
         </div>
         <div class="info">
             <table>
@@ -68,13 +65,22 @@
                     <th class="field">Другие названия</th>
                     <td class="value"><%= anime.getOtherTitle() %></td>
                 </tr>
+                <%
+                    String animeGenres = "";
+                    for (AnimeGenreEntity genre : anime.getAnimeGenresById()) {
+
+                        animeGenres += genre.getGenresByGenresId().getName();
+                        animeGenres += " ";
+                    }
+
+                %>
                 <tr class="genre">
                     <th class="field">Жанр</th>
-                    <td class="value">Ещё не вытянул с базы</td>
+                    <td class="value"><%= animeGenres %></td>
                 </tr>
                 <tr class="type">
                     <th class="field">Тип</th>
-                    <td class="value">Пока нет</td>
+                    <td class="value"><%= anime.getAnimeTypesByAnimeTypeId().getName() %></td>
                 </tr>
                 <tr class="year">
                     <th class="field">Дата выпуска</th>
@@ -96,9 +102,14 @@
             <p><%= anime.getReview() %></p>
         </div>
         <div class="screenshots">
-                <% for (int i = 0; i < screenshots.size() && i < 9; i++) {%>
-                    <img src="<%= screenshots.get(i).getUrl() %>" alt="<%= anime.getMainTitle() %>" width=300px>
-                <%}%>
+                <%
+                    Integer countScreenshots = 1;
+                    for (ScreenshotsEntity screenshot : anime.getScreenshotsesById()){
+                        if(countScreenshots > 6)
+                            return;%>
+                    <img src="<%= screenshot.getUrl() %>" alt="<%= anime.getMainTitle() %>" width=300px>
+                <%  countScreenshots++;
+                    }%>
         </div>
     </div>
 </body>

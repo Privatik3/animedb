@@ -10,19 +10,19 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
 
-        <mapping class="domain.AnimeEntity"/>
+        <mapping class="animedb.domain.AnimeEntity"/>
         <mapping resource="AnimeEntity.hbm.xml"/>
-        <mapping class="domain.AnimeGenreEntity"/>
+        <mapping class="animedb.domain.AnimeGenreEntity"/>
         <mapping resource="AnimeGenreEntity.hbm.xml"/>
-        <mapping class="domain.AnimeTypesEntity"/>
+        <mapping class="animedb.domain.AnimeTypesEntity"/>
         <mapping resource="AnimeTypesEntity.hbm.xml"/>
-        <mapping class="domain.ConnectionsEntity"/>
+        <mapping class="animedb.domain.ConnectionsEntity"/>
         <mapping resource="ConnectionsEntity.hbm.xml"/>
-        <mapping class="domain.GenresEntity"/>
+        <mapping class="animedb.domain.GenresEntity"/>
         <mapping resource="GenresEntity.hbm.xml"/>
         <mapping resource="ProductionEntity.hbm.xml"/>
-        <mapping class="domain.ProductionEntity"/>
-        <mapping class="domain.ScreenshotsEntity"/>
+        <mapping class="animedb.domain.ProductionEntity"/>
+        <mapping class="animedb.domain.ScreenshotsEntity"/>
         <mapping resource="ScreenshotsEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

@@ -1,15 +1,15 @@
-package domain;
+package animedb.domain;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "production", schema = "", catalog = "mydb")
-public class ProductionEntity {
+@Table(name = "genres", schema = "", catalog = "mydb")
+public class GenresEntity {
 
     private int id;
     private String name;
-    private Collection<AnimeEntity> animesById;
+    private Collection<AnimeGenreEntity> animeGenresById;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -36,7 +36,7 @@ public class ProductionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProductionEntity that = (ProductionEntity) o;
+        GenresEntity that = (GenresEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -51,12 +51,12 @@ public class ProductionEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "productionByProductionId")
-    public Collection<AnimeEntity> getAnimesById() {
-        return animesById;
+    @OneToMany(mappedBy = "genresByGenresId")
+    public Collection<AnimeGenreEntity> getAnimeGenresById() {
+        return animeGenresById;
     }
 
-    public void setAnimesById(Collection<AnimeEntity> animesById) {
-        this.animesById = animesById;
+    public void setAnimeGenresById(Collection<AnimeGenreEntity> animeGenresById) {
+        this.animeGenresById = animeGenresById;
     }
 }

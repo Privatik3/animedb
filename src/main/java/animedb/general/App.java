@@ -1,8 +1,8 @@
-package general;
+package animedb.general;
 
-import dao.AnimeDao;
-import domain.AnimeEntity;
-import domain.AnimeGenreEntity;
+import animedb.dao.AnimeDao;
+import animedb.domain.AnimeEntity;
+import animedb.domain.AnimeGenreEntity;
 
 import java.sql.SQLException;
 
@@ -14,7 +14,7 @@ public class App {
         AnimeDao animeDao = factory.getAnimeDao();
 
 
-        AnimeEntity anime = animeDao.getAnimeById(1000);
+        AnimeEntity anime = animeDao.getAnimeById(315);
 
         System.out.println("Main title: " + anime.getMainTitle());
         System.out.println("Other_title: " + anime.getOtherTitle());

@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="domain.AnimeTypesEntity" table="anime_types" schema="" catalog="mydb">
+    <class name="animedb.domain.AnimeTypesEntity" table="anime_types" schema="" catalog="mydb">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
         </id>
@@ -15,7 +15,7 @@
             <key>
                 <column name="anime_type_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="domain.AnimeEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.AnimeEntity"/>
         </set>
     </class>
 </hibernate-mapping>

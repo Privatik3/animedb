@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="domain.AnimeEntity" table="anime" schema="" catalog="mydb">
+    <class name="animedb.domain.AnimeEntity" table="anime" schema="" catalog="mydb">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
         </id>
@@ -32,29 +32,29 @@
         <property name="voted">
             <column name="voted" sql-type="int"/>
         </property>
-        <many-to-one name="productionByProductionId" class="domain.ProductionEntity">
+        <many-to-one name="productionByProductionId" class="animedb.domain.ProductionEntity">
             <column name="production_id" not-null="true"/>
         </many-to-one>
-        <many-to-one name="animeTypesByAnimeTypeId" class="domain.AnimeTypesEntity">
+        <many-to-one name="animeTypesByAnimeTypeId" class="animedb.domain.AnimeTypesEntity">
             <column name="anime_type_id" not-null="true"/>
         </many-to-one>
         <set name="animeGenresById" inverse="true">
             <key>
                 <column name="Anime_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="domain.AnimeGenreEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.AnimeGenreEntity"/>
         </set>
         <set name="connectionsesById" inverse="true">
             <key>
                 <column name="Anime_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="domain.ConnectionsEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.ConnectionsEntity"/>
         </set>
         <set name="screenshotsesById" inverse="true">
             <key>
                 <column name="Anime_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="domain.ScreenshotsEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.ScreenshotsEntity"/>
         </set>
     </class>
 </hibernate-mapping>

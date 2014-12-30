@@ -1,7 +1,7 @@
-package general;
+package animedb.general;
 
-import dao.AnimeDao;
-import dao.implement.AnimeDaoImpl;
+import animedb.dao.AnimeDao;
+import animedb.dao.implement.AnimeDaoImpl;
 
 public class Factory {
 

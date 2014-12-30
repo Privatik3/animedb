@@ -1,9 +1,9 @@
-package dao.implement;
+package animedb.dao.implement;
 
-import dao.AnimeDao;
-import domain.AnimeEntity;
+import animedb.dao.AnimeDao;
+import animedb.domain.AnimeEntity;
 import org.hibernate.Session;
-import util.HibernateUtil;
+import animedb.util.HibernateUtil;
 
 import java.sql.SQLException;
 

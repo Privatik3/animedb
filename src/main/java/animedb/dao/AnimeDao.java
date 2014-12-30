@@ -1,6 +1,6 @@
-package dao;
+package animedb.dao;
 
-import domain.AnimeEntity;
+import animedb.domain.AnimeEntity;
 
 import java.sql.SQLException;
 

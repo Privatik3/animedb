@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="domain.ConnectionsEntity" table="connections" schema="" catalog="mydb">
+    <class name="animedb.domain.ConnectionsEntity" table="connections" schema="" catalog="mydb">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
         </id>
@@ -14,7 +14,7 @@
         <property name="text">
             <column name="text" sql-type="varchar" not-null="true"/>
         </property>
-        <many-to-one name="animeByAnimeId" class="domain.AnimeEntity">
+        <many-to-one name="animeByAnimeId" class="animedb.domain.AnimeEntity">
             <column name="Anime_id" not-null="true"/>
         </many-to-one>
     </class>
