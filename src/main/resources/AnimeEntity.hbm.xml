@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="home.privatik.domain.AnimeEntity" table="anime" schema="" catalog="mydb">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="mainImg">
+            <column name="main_img" sql-type="varchar"/>
+        </property>
+        <property name="mainTitle">
+            <column name="main_title" sql-type="varchar" not-null="true"/>
+        </property>
+        <property name="otherTitle">
+            <column name="other_title" sql-type="mediumtext" length="16777215"/>
+        </property>
+        <property name="animeTypeId">
+            <column name="anime_type_id" sql-type="int" not-null="true"/>
+        </property>
+        <property name="productionId">
+            <column name="production_id" sql-type="int" not-null="true"/>
+        </property>
+        <property name="yearProduction">
+            <column name="year_production" sql-type="date" not-null="true"/>
+        </property>
+        <property name="review">
+            <column name="review" sql-type="mediumtext" length="16777215"/>
+        </property>
+        <property name="average">
+            <column name="average" sql-type="double" precision="22"/>
+        </property>
+        <property name="ranced">
+            <column name="ranced" sql-type="int"/>
+        </property>
+        <property name="voted">
+            <column name="voted" sql-type="int"/>
+        </property>
+        <many-to-one name="productionByProductionId" class="home.privatik.domain.ProductionEntity">
+            <column name="production_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="animeTypesByAnimeTypeId" class="home.privatik.domain.AnimeTypesEntity">
+            <column name="anime_type_id" not-null="true"/>
+        </many-to-one>
+        <set name="animeGenresById" inverse="true">
+            <key>
+                <column name="Anime_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="home.privatik.domain.AnimeGenreEntity"/>
+        </set>
+        <set name="connectionsesById" inverse="true">
+            <key>
+                <column name="Anime_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="home.privatik.domain.ConnectionsEntity"/>
+        </set>
+        <set name="screenshotsesById" inverse="true">
+            <key>
+                <column name="anime_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="home.privatik.domain.ScreenshotsEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>
