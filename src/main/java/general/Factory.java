@@ -1,13 +1,12 @@
-package home.privatik.general;
+package general;
 
-
-import home.privatik.dao.AnimeDao;
-import home.privatik.dao.AnimeDaoImpl;
+import dao.AnimeDao;
+import dao.implement.AnimeDaoImpl;
 
 public class Factory {
 
-    private static Factory instance = new Factory();
-    private AnimeDao animeDao;
+    public static Factory instance = new Factory();
+    public AnimeDao animeDao;
 
     private Factory() {}
 
@@ -17,7 +16,7 @@ public class Factory {
 
     public AnimeDao getAnimeDao() {
         if (animeDao == null)
-            animeDao = new AnimeDaoImpl();
+            return animeDao = new AnimeDaoImpl();
         return animeDao;
     }
 }

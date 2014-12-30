@@ -1,4 +1,4 @@
-package home.privatik.domain;
+package domain;
 
 import javax.persistence.*;
 import java.util.Collection;

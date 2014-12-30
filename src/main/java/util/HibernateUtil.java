@@ -1,4 +1,4 @@
-package home.privatik.util;
+package util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -8,7 +8,7 @@ public class HibernateUtil {
 
     private static SessionFactory sessionFactory;
 
-    private HibernateUtil() {}
+    public HibernateUtil() {}
 
     static {
         try {

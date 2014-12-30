@@ -10,20 +10,21 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
 
-        <mapping class="home.privatik.domain.AnimeEntity"/>
+        <mapping class="domain.AnimeEntity"/>
         <mapping resource="AnimeEntity.hbm.xml"/>
-        <mapping class="home.privatik.domain.AnimeGenreEntity"/>
+        <mapping class="domain.AnimeGenreEntity"/>
         <mapping resource="AnimeGenreEntity.hbm.xml"/>
-        <mapping class="home.privatik.domain.AnimeTypesEntity"/>
+        <mapping class="domain.AnimeTypesEntity"/>
         <mapping resource="AnimeTypesEntity.hbm.xml"/>
-        <mapping class="home.privatik.domain.ConnectionsEntity"/>
+        <mapping class="domain.ConnectionsEntity"/>
         <mapping resource="ConnectionsEntity.hbm.xml"/>
-        <mapping class="home.privatik.domain.GenresEntity"/>
+        <mapping class="domain.GenresEntity"/>
         <mapping resource="GenresEntity.hbm.xml"/>
-        <mapping class="home.privatik.domain.ProductionEntity"/>
         <mapping resource="ProductionEntity.hbm.xml"/>
-        <mapping class="home.privatik.domain.ScreenshotsEntity"/>
+        <mapping class="domain.ProductionEntity"/>
+        <mapping class="domain.ScreenshotsEntity"/>
         <mapping resource="ScreenshotsEntity.hbm.xml"/>
-
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

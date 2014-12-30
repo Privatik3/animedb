@@ -4,20 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="home.privatik.domain.AnimeGenreEntity" table="anime_genre" schema="" catalog="mydb">
+    <class name="domain.AnimeGenreEntity" table="anime_genre" schema="" catalog="mydb">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
         </id>
-        <property name="animeId">
-            <column name="Anime_id" sql-type="int" not-null="true"/>
-        </property>
-        <property name="genresId">
-            <column name="genres_id" sql-type="int" not-null="true"/>
-        </property>
-        <many-to-one name="animeByAnimeId" class="home.privatik.domain.AnimeEntity">
+        <many-to-one name="animeByAnimeId" class="domain.AnimeEntity">
             <column name="Anime_id" not-null="true"/>
         </many-to-one>
-        <many-to-one name="genresByGenresId" class="home.privatik.domain.GenresEntity">
+        <many-to-one name="genresByGenresId" class="domain.GenresEntity">
             <column name="genres_id" not-null="true"/>
         </many-to-one>
     </class>
