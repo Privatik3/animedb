@@ -1,7 +1,6 @@
 package animedb.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,11 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloWorldServlet extends HttpServlet {
 
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=utf-8");
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
-        PrintWriter pw = resp.getWriter();
-        pw.println("<H1>Hello, world! или Привет мир</H1>");
-
+        getServletContext().getRequestDispatcher("/WEB-INF/page/hello.jsp").forward(req, resp);
     }
 }
