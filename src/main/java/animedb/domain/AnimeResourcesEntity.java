@@ -3,12 +3,13 @@ package animedb.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "screenshots", schema = "", catalog = "my_db")
-public class ScreenshotsEntity {
+@Table(name = "anime_resources", schema = "", catalog = "my_db")
+public class AnimeResourcesEntity {
 
     private int id;
     private String url;
     private AnimesEntity animesByAnimesId;
+    private ResourcesNameEntity resourcesNameByResourcesNameId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -21,7 +22,7 @@ public class ScreenshotsEntity {
     }
 
     @Basic
-    @Column(name = "url", nullable = false, insertable = true, updatable = true, length = 255)
+    @Column(name = "url", nullable = true, insertable = true, updatable = true, length = 255)
     public String getUrl() {
         return url;
     }
@@ -35,7 +36,7 @@ public class ScreenshotsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ScreenshotsEntity that = (ScreenshotsEntity) o;
+        AnimeResourcesEntity that = (AnimeResourcesEntity) o;
 
         if (id != that.id) return false;
         if (url != null ? !url.equals(that.url) : that.url != null) return false;
@@ -58,5 +59,15 @@ public class ScreenshotsEntity {
 
     public void setAnimesByAnimesId(AnimesEntity animesByAnimesId) {
         this.animesByAnimesId = animesByAnimesId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "resources_name_id", referencedColumnName = "id", nullable = false)
+    public ResourcesNameEntity getResourcesNameByResourcesNameId() {
+        return resourcesNameByResourcesNameId;
+    }
+
+    public void setResourcesNameByResourcesNameId(ResourcesNameEntity resourcesNameByResourcesNameId) {
+        this.resourcesNameByResourcesNameId = resourcesNameByResourcesNameId;
     }
 }

@@ -1,10 +1,11 @@
 package animedb.dao;
 
-import animedb.domain.AnimeEntity;
+import animedb.domain.AnimesEntity;
+import org.hibernate.Session;
 
 import java.sql.SQLException;
 
 public interface AnimeDao {
 
-    public AnimeEntity getAnimeById(Integer animeID) throws SQLException;
+    public AnimesEntity getAnimeById(int animeId) throws SQLException;
 }

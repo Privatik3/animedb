@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "production", schema = "", catalog = "mydb")
-public class ProductionEntity {
+@Table(name = "resources_name", schema = "", catalog = "my_db")
+public class ResourcesNameEntity {
 
     private int id;
     private String name;
-    private Collection<AnimeEntity> animesById;
+    private Collection<AnimeResourcesEntity> animeResourcesesById;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -22,7 +22,7 @@ public class ProductionEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 255)
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 255)
     public String getName() {
         return name;
     }
@@ -36,7 +36,7 @@ public class ProductionEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProductionEntity that = (ProductionEntity) o;
+        ResourcesNameEntity that = (ResourcesNameEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -51,12 +51,12 @@ public class ProductionEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "productionByProductionId")
-    public Collection<AnimeEntity> getAnimesById() {
-        return animesById;
+    @OneToMany(mappedBy = "resourcesNameByResourcesNameId")
+    public Collection<AnimeResourcesEntity> getAnimeResourcesesById() {
+        return animeResourcesesById;
     }
 
-    public void setAnimesById(Collection<AnimeEntity> animesById) {
-        this.animesById = animesById;
+    public void setAnimeResourcesesById(Collection<AnimeResourcesEntity> animeResourcesesById) {
+        this.animeResourcesesById = animeResourcesesById;
     }
 }

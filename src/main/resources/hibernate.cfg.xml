@@ -5,25 +5,39 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/my_db</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
 
-        <mapping class="animedb.domain.AnimeEntity"/>
-        <mapping resource="AnimeEntity.hbm.xml"/>
-        <mapping class="animedb.domain.AnimeGenreEntity"/>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.jdbc.batch_size">100</property>
+
         <mapping resource="AnimeGenreEntity.hbm.xml"/>
-        <mapping class="animedb.domain.AnimeTypesEntity"/>
-        <mapping resource="AnimeTypesEntity.hbm.xml"/>
-        <mapping class="animedb.domain.ConnectionsEntity"/>
+        <mapping class="animedb.domain.AnimeGenreEntity"/>
+        <mapping resource="AnimeResourcesEntity.hbm.xml"/>
+        <mapping class="animedb.domain.AnimeResourcesEntity"/>
+        <mapping resource="AnimesEntity.hbm.xml"/>
+        <mapping class="animedb.domain.AnimesEntity"/>
         <mapping resource="ConnectionsEntity.hbm.xml"/>
-        <mapping class="animedb.domain.GenresEntity"/>
+        <mapping class="animedb.domain.ConnectionsEntity"/>
+        <mapping resource="DirectedEntity.hbm.xml"/>
+        <mapping class="animedb.domain.DirectedEntity"/>
         <mapping resource="GenresEntity.hbm.xml"/>
-        <mapping resource="ProductionEntity.hbm.xml"/>
-        <mapping class="animedb.domain.ProductionEntity"/>
-        <mapping class="animedb.domain.ScreenshotsEntity"/>
+        <mapping class="animedb.domain.GenresEntity"/>
+        <mapping resource="OtherTitleEntity.hbm.xml"/>
+        <mapping class="animedb.domain.OtherTitleEntity"/>
+        <mapping resource="ResourcesNameEntity.hbm.xml"/>
+        <mapping class="animedb.domain.ResourcesNameEntity"/>
         <mapping resource="ScreenshotsEntity.hbm.xml"/>
+        <mapping class="animedb.domain.ScreenshotsEntity"/>
+        <mapping resource="StudioEntity.hbm.xml"/>
+        <mapping class="animedb.domain.StudioEntity"/>
+        <mapping resource="TypesEntity.hbm.xml"/>
+        <mapping class="animedb.domain.TypesEntity"/>
+        <mapping resource="YearProductionEntity.hbm.xml"/>
+        <mapping class="animedb.domain.YearProductionEntity"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

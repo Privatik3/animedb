@@ -3,13 +3,13 @@ package animedb.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "connections", schema = "", catalog = "mydb")
+@Table(name = "connections", schema = "", catalog = "my_db")
 public class ConnectionsEntity {
 
     private int id;
-    private String idConnection;
+    private int idConnection;
     private String text;
-    private AnimeEntity animeByAnimeId;
+    private AnimesEntity animesByAnimesId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -23,11 +23,11 @@ public class ConnectionsEntity {
 
     @Basic
     @Column(name = "id_connection", nullable = true, insertable = true, updatable = true, length = 45)
-    public String getIdConnection() {
+    public int getIdConnection() {
         return idConnection;
     }
 
-    public void setIdConnection(String idConnection) {
+    public void setIdConnection(int idConnection) {
         this.idConnection = idConnection;
     }
 
@@ -41,6 +41,7 @@ public class ConnectionsEntity {
         this.text = text;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,7 +50,7 @@ public class ConnectionsEntity {
         ConnectionsEntity that = (ConnectionsEntity) o;
 
         if (id != that.id) return false;
-        if (idConnection != null ? !idConnection.equals(that.idConnection) : that.idConnection != null) return false;
+        if (idConnection != that.idConnection) return false;
         if (text != null ? !text.equals(that.text) : that.text != null) return false;
 
         return true;
@@ -58,18 +59,18 @@ public class ConnectionsEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (idConnection != null ? idConnection.hashCode() : 0);
+        result = 31 * result;
         result = 31 * result + (text != null ? text.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "Anime_id", referencedColumnName = "id", nullable = false)
-    public AnimeEntity getAnimeByAnimeId() {
-        return animeByAnimeId;
+    @JoinColumn(name = "animes_id", referencedColumnName = "id", nullable = false)
+    public AnimesEntity getAnimesByAnimesId() {
+        return animesByAnimesId;
     }
 
-    public void setAnimeByAnimeId(AnimeEntity animeByAnimeId) {
-        this.animeByAnimeId = animeByAnimeId;
+    public void setAnimesByAnimesId(AnimesEntity animesByAnimesId) {
+        this.animesByAnimesId = animesByAnimesId;
     }
 }

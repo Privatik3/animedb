@@ -4,18 +4,19 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="animedb.domain.ConnectionsEntity" table="connections" schema="" catalog="mydb">
+    <class name="animedb.domain.ConnectionsEntity" table="connections" schema="" catalog="my_db">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
+            <generator class="native"/>
         </id>
         <property name="idConnection">
-            <column name="id_connection" sql-type="varchar" length="45"/>
+            <column name="id_connection" sql-type="int" length="45"/>
         </property>
         <property name="text">
             <column name="text" sql-type="varchar" not-null="true"/>
         </property>
-        <many-to-one name="animeByAnimeId" class="animedb.domain.AnimeEntity">
-            <column name="Anime_id" not-null="true"/>
+        <many-to-one name="animesByAnimesId" class="animedb.domain.AnimesEntity">
+            <column name="animes_id" not-null="true"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

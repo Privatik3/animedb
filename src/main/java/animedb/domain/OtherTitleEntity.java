@@ -1,15 +1,14 @@
 package animedb.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "anime_types", schema = "", catalog = "mydb")
-public class AnimeTypesEntity {
+@Table(name = "other_title", schema = "", catalog = "my_db")
+public class OtherTitleEntity {
 
     private int id;
     private String name;
-    private Collection<AnimeEntity> animesById;
+    private AnimesEntity animesByAnimesId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -22,7 +21,7 @@ public class AnimeTypesEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 255)
+    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 255)
     public String getName() {
         return name;
     }
@@ -36,7 +35,7 @@ public class AnimeTypesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        AnimeTypesEntity that = (AnimeTypesEntity) o;
+        OtherTitleEntity that = (OtherTitleEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -51,12 +50,13 @@ public class AnimeTypesEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "animeTypesByAnimeTypeId")
-    public Collection<AnimeEntity> getAnimesById() {
-        return animesById;
+    @ManyToOne
+    @JoinColumn(name = "animes_id", referencedColumnName = "id", nullable = false)
+    public AnimesEntity getAnimesByAnimesId() {
+        return animesByAnimesId;
     }
 
-    public void setAnimesById(Collection<AnimeEntity> animesById) {
-        this.animesById = animesById;
+    public void setAnimesByAnimesId(AnimesEntity animesByAnimesId) {
+        this.animesByAnimesId = animesByAnimesId;
     }
 }

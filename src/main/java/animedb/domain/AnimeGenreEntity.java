@@ -3,11 +3,11 @@ package animedb.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "anime_genre", schema = "", catalog = "mydb")
+@Table(name = "anime_genre", schema = "", catalog = "my_db")
 public class AnimeGenreEntity {
 
     private int id;
-    private AnimeEntity animeByAnimeId;
+    private AnimesEntity animesByAnimesId;
     private GenresEntity genresByGenresId;
 
     @Id
@@ -39,13 +39,13 @@ public class AnimeGenreEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Anime_id", referencedColumnName = "id", nullable = false)
-    public AnimeEntity getAnimeByAnimeId() {
-        return animeByAnimeId;
+    @JoinColumn(name = "animes_id", referencedColumnName = "id", nullable = false)
+    public AnimesEntity getAnimesByAnimesId() {
+        return animesByAnimesId;
     }
 
-    public void setAnimeByAnimeId(AnimeEntity animeByAnimeId) {
-        this.animeByAnimeId = animeByAnimeId;
+    public void setAnimesByAnimesId(AnimesEntity animesByAnimesId) {
+        this.animesByAnimesId = animesByAnimesId;
     }
 
     @ManyToOne

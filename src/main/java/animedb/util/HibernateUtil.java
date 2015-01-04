@@ -14,11 +14,16 @@ public class HibernateUtil {
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Exception e) {
-            throw new ExceptionInInitializerError();
+            e.printStackTrace();
+            //throw new ExceptionInInitializerError();
         }
     }
 
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+
+    public static void closeSession() {
+        sessionFactory.close();
     }
 }
