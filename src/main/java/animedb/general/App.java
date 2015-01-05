@@ -17,6 +17,6 @@ public class App {
 
         System.out.println(animeEntity.getMainTitle());
 
-        HibernateUtil.closeSession();
+        HibernateUtil.getSessionFactory().close();
     }
 }
