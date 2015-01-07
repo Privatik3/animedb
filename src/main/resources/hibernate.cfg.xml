@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/my_db</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <mapping resource="AnimeGenreEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.AnimeGenreEntity"/>
+        <mapping resource="AnimeResourcesEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.AnimeResourcesEntity"/>
+        <mapping resource="AnimesEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.AnimesEntity"/>
+        <mapping resource="ConnectionsEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.ConnectionsEntity"/>
+        <mapping resource="DirectedEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.DirectedEntity"/>
+        <mapping resource="GenresEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.GenresEntity"/>
+        <mapping resource="OtherTitleEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.OtherTitleEntity"/>
+        <mapping resource="ResourcesNameEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.ResourcesNameEntity"/>
+        <mapping resource="ScreenshotsEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.ScreenshotsEntity"/>
+        <mapping resource="StudioEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.StudioEntity"/>
+        <mapping resource="TypesEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.TypesEntity"/>
+        <mapping resource="YearProductionEntity.hbm.xml"/>
+        <mapping class="home.privatik.spring.domain.YearProductionEntity"/>
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
