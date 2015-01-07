@@ -1,17 +1,14 @@
-package home.privatik.spring.domain;
+package animedb.domain;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Collection;
 
 @Entity
-@Table(name = "studio", schema = "", catalog = "my_db")
-public class StudioEntity {
+@Table(name = "directed", schema = "", catalog = "my_db")
+public class DirectedEntity {
 
     private int id;
     private String name;
-    private Date year;
-    private String logo;
     private String resources;
     private Collection<AnimesEntity> animesesById;
 
@@ -36,27 +33,7 @@ public class StudioEntity {
     }
 
     @Basic
-    @Column(name = "year", nullable = true, insertable = true, updatable = true)
-    public Date getYear() {
-        return year;
-    }
-
-    public void setYear(Date year) {
-        this.year = year;
-    }
-
-    @Basic
-    @Column(name = "logo", nullable = false, insertable = true, updatable = true, length = 255)
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-
-    @Basic
-    @Column(name = "resources", nullable = false, insertable = true, updatable = true, length = 255)
+    @Column(name = "resources", nullable = true, insertable = true, updatable = true, length = 255)
     public String getResources() {
         return resources;
     }
@@ -70,12 +47,11 @@ public class StudioEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StudioEntity that = (StudioEntity) o;
+        DirectedEntity that = (DirectedEntity) o;
 
         if (id != that.id) return false;
-        if (logo != null ? !logo.equals(that.logo) : that.logo != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (year != null ? !year.equals(that.year) : that.year != null) return false;
+        if (resources != null ? !resources.equals(that.resources) : that.resources != null) return false;
 
         return true;
     }
@@ -84,12 +60,11 @@ public class StudioEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (year != null ? year.hashCode() : 0);
-        result = 31 * result + (logo != null ? logo.hashCode() : 0);
+        result = 31 * result + (resources != null ? resources.hashCode() : 0);
         return result;
     }
 
-    @OneToMany(mappedBy = "studioByStudioId")
+    @OneToMany(mappedBy = "directedByDirectedId")
     public Collection<AnimesEntity> getAnimesesById() {
         return animesesById;
     }

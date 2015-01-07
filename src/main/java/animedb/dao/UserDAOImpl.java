@@ -1,9 +1,8 @@
-package home.privatik.spring.dao;
+package animedb.dao;
 
 import java.util.List;
 
-import home.privatik.spring.domain.AnimesEntity;
-import home.privatik.spring.domain.UsersEntity;
+import animedb.domain.AnimesEntity;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

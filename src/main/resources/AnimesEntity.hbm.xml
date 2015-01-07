@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="home.privatik.spring.domain.AnimesEntity" table="animes" schema="" catalog="my_db">
+    <class name="animedb.domain.AnimesEntity" table="animes" schema="" catalog="my_db">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
         </id>
@@ -29,47 +29,47 @@
         <property name="typeInfo">
             <column name="type_info" sql-type="varchar" length="255" not-null="true"/>
         </property>
-        <many-to-one name="directedByDirectedId" class="home.privatik.spring.domain.DirectedEntity" lazy="false">
+        <many-to-one name="directedByDirectedId" class="animedb.domain.DirectedEntity" lazy="false">
             <column name="directed_id" />
         </many-to-one>
-        <many-to-one name="studioByStudioId" class="home.privatik.spring.domain.StudioEntity">
+        <many-to-one name="studioByStudioId" class="animedb.domain.StudioEntity">
             <column name="studio_id" />
         </many-to-one>
-        <many-to-one name="typesByAnimeTypeId" class="home.privatik.spring.domain.TypesEntity">
+        <many-to-one name="typesByAnimeTypeId" class="animedb.domain.TypesEntity">
             <column name="anime_type_id" not-null="true"/>
         </many-to-one>
-        <many-to-one name="yearProductionByYearProductionId" class="home.privatik.spring.domain.YearProductionEntity">
+        <many-to-one name="yearProductionByYearProductionId" class="animedb.domain.YearProductionEntity">
             <column name="year_production_id" not-null="true"/>
         </many-to-one>
         <set name="animeGenresById" inverse="true">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="home.privatik.spring.domain.AnimeGenreEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.AnimeGenreEntity"/>
         </set>
         <set name="animeResourcesesById" inverse="true">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="home.privatik.spring.domain.AnimeResourcesEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.AnimeResourcesEntity"/>
         </set>
         <set name="connectionsesById" inverse="true">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="home.privatik.spring.domain.ConnectionsEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.ConnectionsEntity"/>
         </set>
         <set name="otherTitlesById" inverse="true">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="home.privatik.spring.domain.OtherTitleEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.OtherTitleEntity"/>
         </set>
         <set name="screenshotsesById" inverse="true">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="home.privatik.spring.domain.ScreenshotsEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.ScreenshotsEntity"/>
         </set>
     </class>
 </hibernate-mapping>

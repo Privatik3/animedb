@@ -1,15 +1,14 @@
-package home.privatik.spring.domain;
+package animedb.domain;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
-@Table(name = "resources_name", schema = "", catalog = "my_db")
-public class ResourcesNameEntity {
+@Table(name = "other_title", schema = "", catalog = "my_db")
+public class OtherTitleEntity {
 
     private int id;
     private String name;
-    private Collection<AnimeResourcesEntity> animeResourcesesById;
+    private AnimesEntity animesByAnimesId;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -36,7 +35,7 @@ public class ResourcesNameEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ResourcesNameEntity that = (ResourcesNameEntity) o;
+        OtherTitleEntity that = (OtherTitleEntity) o;
 
         if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -51,12 +50,13 @@ public class ResourcesNameEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "resourcesNameByResourcesNameId")
-    public Collection<AnimeResourcesEntity> getAnimeResourcesesById() {
-        return animeResourcesesById;
+    @ManyToOne
+    @JoinColumn(name = "animes_id", referencedColumnName = "id", nullable = false)
+    public AnimesEntity getAnimesByAnimesId() {
+        return animesByAnimesId;
     }
 
-    public void setAnimeResourcesesById(Collection<AnimeResourcesEntity> animeResourcesesById) {
-        this.animeResourcesesById = animeResourcesesById;
+    public void setAnimesByAnimesId(AnimesEntity animesByAnimesId) {
+        this.animesByAnimesId = animesByAnimesId;
     }
 }

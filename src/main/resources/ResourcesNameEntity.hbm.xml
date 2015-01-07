@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="home.privatik.spring.domain.ResourcesNameEntity" table="resources_name" schema="" catalog="my_db">
+    <class name="animedb.domain.ResourcesNameEntity" table="resources_name" schema="" catalog="my_db">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
         </id>
@@ -15,7 +15,7 @@
             <key>
                 <column name="resources_name_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="home.privatik.spring.domain.AnimeResourcesEntity"/>
+            <one-to-many not-found="ignore" class="animedb.domain.AnimeResourcesEntity"/>
         </set>
     </class>
 </hibernate-mapping>

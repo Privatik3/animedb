@@ -1,8 +1,7 @@
-package home.privatik.spring.controller;
+package animedb.controller;
 
-import home.privatik.spring.dao.UserDAO;
-import home.privatik.spring.domain.AnimesEntity;
-import home.privatik.spring.domain.UsersEntity;
+import animedb.domain.AnimesEntity;
+import animedb.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

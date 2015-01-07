@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="home.privatik.spring.domain.ConnectionsEntity" table="connections" schema="" catalog="my_db">
+    <class name="animedb.domain.ConnectionsEntity" table="connections" schema="" catalog="my_db">
         <id name="id">
             <column name="id" sql-type="int" not-null="true"/>
             <generator class="native"/>
@@ -15,7 +15,7 @@
         <property name="text">
             <column name="text" sql-type="varchar" not-null="true"/>
         </property>
-        <many-to-one name="animesByAnimesId" class="home.privatik.spring.domain.AnimesEntity">
+        <many-to-one name="animesByAnimesId" class="animedb.domain.AnimesEntity">
             <column name="animes_id" not-null="true"/>
         </many-to-one>
     </class>

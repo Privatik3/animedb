@@ -1,4 +1,4 @@
-package home.privatik.spring.domain;
+package animedb.domain;
 
 import javax.persistence.*;
 
