@@ -3,6 +3,7 @@ package animedb.dao;
 import java.util.List;
 
 import animedb.domain.AnimesEntity;
+import animedb.servise.Parametrs;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
         @SuppressWarnings("unchecked")
         List<AnimesEntity> listUser = (List<AnimesEntity>) sessionFactory.getCurrentSession()
                 .createCriteria(AnimesEntity.class)
-                .setMaxResults(1)
+                .setMaxResults(20)
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 
         return listUser;
@@ -33,5 +34,8 @@ public class UserDAOImpl implements UserDAO {
                 .get(AnimesEntity.class, id);
     }
 
-
+    @Override
+    public List<AnimesEntity> getAnimeByParameters(Parametrs parametrs) {
+        return null;
+    }
 }

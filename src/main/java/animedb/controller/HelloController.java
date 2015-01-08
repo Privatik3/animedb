@@ -1,5 +1,6 @@
 package animedb.controller;
 
+import animedb.servise.Parametrs;
 import animedb.domain.AnimesEntity;
 import animedb.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -41,9 +43,18 @@ public class HelloController {
     @RequestMapping(value = "/topanime", method = RequestMethod.GET)
     public String printTopAnime(ModelMap model, HttpServletRequest request) {
 
-        List<AnimesEntity> listUsers = userDao.list();
+        /*Parametrs param = new Parametrs();
 
-        model.addAttribute("animes", listUsers);
+        param.setDate(request.getParameter("year_production"));
+        param.setGenres(request.getParameterValues("genres"));
+        param.setPage(request.getParameter("1"));
+        param.setType(request.getParameter("types"));
+        param.setSortedType(request.getParameter("typesort"));*/
+
+        //List<AnimesEntity> animes = userDao.getAnimeByParameters(param);
+
+        List<AnimesEntity> animes = userDao.list();
+        model.addAttribute("animes", animes);
 
         return "topanime";
     }
