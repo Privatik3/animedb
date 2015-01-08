@@ -37,4 +37,15 @@ public class HelloController {
 
         return "anime";
     }
+
+    @RequestMapping(value = "/topanime", method = RequestMethod.GET)
+    public String printTopAnime(ModelMap model, HttpServletRequest request) {
+
+        int animeId = Integer.parseInt(request.getParameter("id"));
+        AnimesEntity anime = userDao.getAnimeById(animeId);
+
+        model.addAttribute("anime", anime);
+
+        return "topanime";
+    }
 }
