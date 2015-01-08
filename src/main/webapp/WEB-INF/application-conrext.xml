@@ -18,22 +18,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="mappingResources">
-            <list>
-                <value>AnimeGenreEntity.hbm.xml</value>
-                <value>AnimeResourcesEntity.hbm.xml</value>
-                <value>AnimesEntity.hbm.xml</value>
-                <value>ConnectionsEntity.hbm.xml</value>
-                <value>DirectedEntity.hbm.xml</value>
-                <value>GenresEntity.hbm.xml</value>
-                <value>OtherTitleEntity.hbm.xml</value>
-                <value>ResourcesNameEntity.hbm.xml</value>
-                <value>ScreenshotsEntity.hbm.xml</value>
-                <value>StudioEntity.hbm.xml</value>
-                <value>TypesEntity.hbm.xml</value>
-                <value>YearProductionEntity.hbm.xml</value>
-            </list>
-        </property>
+        <property name="packagesToScan" value="animedb.domain" />
         <property name="hibernateProperties">
             <value>
                 current_session_context_class=thread

@@ -5,20 +5,12 @@
     <title></title>
 </head>
 <body>
-<h1>Anime list</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Main title</th>
-        <th>Directed name</th>
-    </tr>
-    <c:forEach items="${users}" var="user">
-        <tr>
-            <td>${user.id}</td>
-            <td>${user.mainTitle}</td>
-            <td>${user.directedByDirectedId.name}</td>
-        </tr>
-    </c:forEach>
-</table>
+    <form action="${pageContext.request.contextPath}/anime" method="get">
+        Аниме Id:
+        <label>
+            <input type="text" name="id"/>
+        </label>
+        <input type="submit" value="Найти" />
+    </form>
 </body>
 </html>
