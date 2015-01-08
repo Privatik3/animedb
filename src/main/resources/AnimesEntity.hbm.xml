@@ -32,40 +32,40 @@
         <many-to-one name="directedByDirectedId" class="animedb.domain.DirectedEntity" lazy="false">
             <column name="directed_id" />
         </many-to-one>
-        <many-to-one name="studioByStudioId" class="animedb.domain.StudioEntity">
+        <many-to-one name="studioByStudioId" class="animedb.domain.StudioEntity" lazy="false">
             <column name="studio_id" />
         </many-to-one>
-        <many-to-one name="typesByAnimeTypeId" class="animedb.domain.TypesEntity">
+        <many-to-one name="typesByAnimeTypeId" class="animedb.domain.TypesEntity" lazy="false">
             <column name="anime_type_id" not-null="true"/>
         </many-to-one>
-        <many-to-one name="yearProductionByYearProductionId" class="animedb.domain.YearProductionEntity">
+        <many-to-one name="yearProductionByYearProductionId" class="animedb.domain.YearProductionEntity" lazy="false">
             <column name="year_production_id" not-null="true"/>
         </many-to-one>
-        <set name="animeGenresById" inverse="true">
+        <set name="animeGenresById" inverse="true" lazy="false">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
             <one-to-many not-found="ignore" class="animedb.domain.AnimeGenreEntity"/>
         </set>
-        <set name="animeResourcesesById" inverse="true">
+        <set name="animeResourcesesById" inverse="true" lazy="false">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
             <one-to-many not-found="ignore" class="animedb.domain.AnimeResourcesEntity"/>
         </set>
-        <set name="connectionsesById" inverse="true">
+        <set name="connectionsesById" inverse="true" lazy="false">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
             <one-to-many not-found="ignore" class="animedb.domain.ConnectionsEntity"/>
         </set>
-        <set name="otherTitlesById" inverse="true">
+        <set name="otherTitlesById" inverse="true" lazy="false">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
             <one-to-many not-found="ignore" class="animedb.domain.OtherTitleEntity"/>
         </set>
-        <set name="screenshotsesById" inverse="true">
+        <set name="screenshotsesById" inverse="true" lazy="false">
             <key>
                 <column name="animes_id" not-null="true"/>
             </key>
