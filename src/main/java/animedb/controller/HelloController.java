@@ -41,10 +41,9 @@ public class HelloController {
     @RequestMapping(value = "/topanime", method = RequestMethod.GET)
     public String printTopAnime(ModelMap model, HttpServletRequest request) {
 
-        int animeId = Integer.parseInt(request.getParameter("id"));
-        AnimesEntity anime = userDao.getAnimeById(animeId);
+        List<AnimesEntity> listUsers = userDao.list();
 
-        model.addAttribute("anime", anime);
+        model.addAttribute("animes", listUsers);
 
         return "topanime";
     }
