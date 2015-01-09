@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -91,5 +91,25 @@
     </select><br>
     <input type="submit" value="Сортировать"/>
 </form>
+<div>
+  <p>
+
+      <c:forEach var="anime" items="${animes}">
+          --------------------------------------------------------<br>
+          Id: <c:out value="${anime.id}"/><br>
+          Main title: <c:out value="${anime.mainTitle}"/><br>
+          <img src="${anime.mainImg}" alt="Main Img"><br>
+          Genres: <c:out value="${anime.animeGenresById}" /><br>
+          Date: <c:out value="${anime.yearProductionByYearProductionId}" /><br>
+          Type: <c:out value="${anime.typesByAnimeTypeId}" /><br>
+          <c:if test="${anime.review != null}">
+              Description: <c:out value="${anime.review}"/><br>
+          </c:if>
+
+          --------------------------------------------------------<br>
+      </c:forEach>
+
+  </p>
+</div>
 </body>
 </html>
