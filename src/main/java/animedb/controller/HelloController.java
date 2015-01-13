@@ -43,13 +43,13 @@ public class HelloController {
     @RequestMapping(value = "/topanime", method = RequestMethod.GET)
     public String printTopAnime(ModelMap model, HttpServletRequest request) {
 
-        /*Parametrs param = new Parametrs();
+        Parametrs param = new Parametrs();
 
-        param.setDate(request.getParameter("year_production"));
+        //param.setDate(request.getParameter("year_production"));
         param.setGenres(request.getParameterValues("genres"));
         param.setPage(request.getParameter("1"));
         param.setType(request.getParameter("types"));
-        param.setSortedType(request.getParameter("typesort"));*/
+        param.setSortedType(request.getParameter("typesort"));
 
         //List<AnimesEntity> animes = userDao.getAnimeByParameters(param);
 

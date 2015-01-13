@@ -1,5 +1,8 @@
 package animedb.domain;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -137,6 +140,7 @@ public class AnimesEntity {
         return result;
     }
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "animesByAnimesId")
     public Collection<AnimeGenreEntity> getAnimeGenresById() {
         return animeGenresById;
@@ -146,6 +150,7 @@ public class AnimesEntity {
         this.animeGenresById = animeGenresById;
     }
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "animesByAnimesId")
     public Collection<AnimeResourcesEntity> getAnimeResourcesesById() {
         return animeResourcesesById;
@@ -195,6 +200,7 @@ public class AnimesEntity {
         this.yearProductionByYearProductionId = yearProductionByYearProductionId;
     }
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "animesByAnimesId")
     public Collection<ConnectionsEntity> getConnectionsesById() {
         return connectionsesById;
@@ -204,6 +210,7 @@ public class AnimesEntity {
         this.connectionsesById = connectionsesById;
     }
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "animesByAnimesId")
     public Collection<OtherTitleEntity> getOtherTitlesById() {
         return otherTitlesById;
@@ -213,7 +220,8 @@ public class AnimesEntity {
         this.otherTitlesById = otherTitlesById;
     }
 
-    @OneToMany(mappedBy = "animesByAnimesId")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "animesByAnimesId", fetch = FetchType.EAGER)
     public Collection<ScreenshotsEntity> getScreenshotsesById() {
         return screenshotsesById;
     }

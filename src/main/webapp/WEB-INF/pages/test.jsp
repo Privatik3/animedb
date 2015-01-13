@@ -5,12 +5,6 @@
     <title></title>
 </head>
 <body>
-    <form action="${pageContext.request.contextPath}/anime" method="get">
-        Аниме Id:
-        <label>
-            <input type="text" name="id"/>
-        </label>
-        <input type="submit" value="Найти" />
-    </form>
+    <a href="/anime?id=1">Anime id: 1</a>
 </body>
 </html>

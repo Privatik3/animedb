@@ -1,23 +1,44 @@
 package animedb.servise;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 public class Parametrs {
 
     private int type; //ТВ
-    private Date date; //1990 + 10
+    private String date; //1990 + 10
     private int[] genres;
     private int sortedType;
     private int page;
 
+    public int getType() {
+        return type;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public int[] getGenres() {
+        return genres;
+    }
+
+    public int getSortedType() {
+        return sortedType;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
     public void setType(String type) {
-        if (type != null)
+        if (date != null && !type.equals(""))
             this.type = Integer.parseInt(type);
     }
 
     public void setDate(String date) {
-        if (date != null)
-            this.date = Date.valueOf("01-01-" + Integer.toString((Integer.parseInt(date) + 1990)));
+        if (date != null && !date.equals(""))
+            this.date = Integer.toString(Integer.valueOf(date) + 1990);
     }
 
     public void setGenres(String[] genres) {
@@ -31,12 +52,25 @@ public class Parametrs {
     }
 
     public void setSortedType(String sortedType) {
-        if (sortedType != null)
+        if (date != null && !sortedType.equals(""))
             this.sortedType = Integer.parseInt(sortedType);
+        else
+            this.sortedType = 1;
     }
 
     public void setPage(String page) {
-        if (page != null)
+        if (date != null && !page.equals(""))
             this.page = Integer.parseInt(page);
+    }
+
+    @Override
+    public String toString() {
+        return "Parametrs{" +
+                "type=" + type +
+                ", date=" + date +
+                ", genres=" + Arrays.toString(genres) +
+                ", sortedType=" + sortedType +
+                ", page=" + page +
+                '}';
     }
 }
